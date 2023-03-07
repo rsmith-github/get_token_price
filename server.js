@@ -28,6 +28,14 @@ app.get('/api/token-price', async (req, res) => {
     res.json(data);
 });
 
+// Default message
+app.get('/', async (req, res) => {
+    const data = {
+        message: "Welcome to the BSC token Price API. Navigate to '/api/token-price' to see WOR token price."
+    };
+    res.json(data);
+});
+
 const updatePrice = async (socket) => {
     const intervalId = setInterval(async () => {
         const price = await returnPrice()
@@ -71,7 +79,3 @@ server.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
     console.log("App now running on port", port);
 });
-
-// server.listen(3000, () => {
-//     console.log('Server is listening on port 3000');
-// });
