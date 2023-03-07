@@ -25,11 +25,9 @@ async function returnPrice() {
     // convert to float
     let floatValue = parseFloat(usdtPrice).toFixed(2)
 
-    // console.log(`CURRENT USDT PRICE: ${floatValue}`);
 
     return floatValue
 }
-
 
 
 // Function to return price in USDT
@@ -48,6 +46,7 @@ async function calcUSDTPrice() {
     }
 
     if (!amountOut) return 0;
+
     return amountOut;
 }
 
