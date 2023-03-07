@@ -11,6 +11,7 @@ const io = require("socket.io")(server, {
     }
 });
 
+// Allow cross-origin
 app.use(cors());
 
 // api endpoint
