@@ -41,8 +41,8 @@ const updatePrice = async (socket) => {
 }
 
 io.on('connection', (socket) => {
+    console.log('A client connected');
 
-    // console.log('A client connected');
     // Send the initial price data to the connected client
     socket.emit('price', { price: 0 });
 
@@ -51,7 +51,6 @@ io.on('connection', (socket) => {
         const data = {
             price: price
         };
-        // console.log(data.price);
         socket.emit('price', data);
     });
 
@@ -59,7 +58,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         // Clear the interval for this socket
         clearInterval(socket.intervalId);
-        // console.log('A client disconnected, interval cleared.');
+        console.log('A client disconnected. Interval cleared.');
     });
 
     // Call the updatePrice function to set up the interval
