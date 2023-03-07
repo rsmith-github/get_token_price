@@ -67,6 +67,11 @@ io.on('connection', (socket) => {
 });
 
 // Start the server
-server.listen(3000, () => {
-    console.log('Server is listening on port 3000');
+server.listen(process.env.PORT || 3000, function () {
+    const port = server.address().port;
+    console.log("App now running on port", port);
 });
+
+// server.listen(3000, () => {
+//     console.log('Server is listening on port 3000');
+// });
